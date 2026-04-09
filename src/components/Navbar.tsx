@@ -66,6 +66,25 @@ const Navbar = () => {
           >
             {ttsEnabled ? <Volume2 className="h-5 w-5 text-primary" /> : <VolumeX className="h-5 w-5 text-muted-foreground" />}
           </Button>
+          {user ? (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={async () => { await signOut(); navigate("/"); }}
+              className="hidden gap-1.5 font-display text-sm md:inline-flex"
+            >
+              <LogOut className="h-4 w-4" /> Logout
+            </Button>
+          ) : (
+            <Button
+              variant="default"
+              size="sm"
+              onClick={() => navigate("/login")}
+              className="hidden gap-1.5 rounded-xl bg-gradient-primary font-display text-sm md:inline-flex"
+            >
+              <LogIn className="h-4 w-4" /> Login
+            </Button>
+          )}
           <Button
             variant="ghost"
             size="icon"
