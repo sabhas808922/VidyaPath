@@ -8,6 +8,8 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [ttsEnabled, setTtsEnabled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, signOut } = useAuth();
 
   const links = [
     { to: "/", label: "Home", icon: BookOpen },
