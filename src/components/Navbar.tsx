@@ -112,6 +112,22 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+          {user ? (
+            <button
+              onClick={async () => { setMobileOpen(false); await signOut(); navigate("/"); }}
+              className="block w-full rounded-lg px-4 py-3 text-left font-display text-sm font-semibold text-destructive"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              onClick={() => setMobileOpen(false)}
+              className="block rounded-lg px-4 py-3 font-display text-sm font-semibold text-primary"
+            >
+              Login
+            </Link>
+          )}
         </div>
       )}
     </nav>
